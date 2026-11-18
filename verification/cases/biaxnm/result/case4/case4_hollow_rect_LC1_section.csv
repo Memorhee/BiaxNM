@@ -1,0 +1,9 @@
+ring,vertex,x_mm,y_mm
+outer,0,-400,-150
+outer,1,400,-150
+outer,2,400,150
+outer,3,-400,150
+hole1,0,-300,50
+hole1,1,300,50
+hole1,2,300,-50
+hole1,3,-300,-50

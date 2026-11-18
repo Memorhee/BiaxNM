@@ -1,0 +1,27 @@
+# 600 x 600 SRC 기둥: 매입 H형강(회전 없음) + 철근 8개, Eurocode 2 (EN 1992-1-1:2004).
+# 재료계수(gamma_c, gamma_s)와 alpha_cc 로 해석하고 결과를 그대로 설계강도로 쓴다 (강도감소계수 phi 없음).
+# 단위: 길이 mm, 면적 mm^2, 응력 MPa, 하중 kN 과 kN*m.  모든 옵션의 설명은 rect_aci318-25.toml 참고.
+
+[code]
+type = "ec2-04-1-1"
+na = "EN"                # National Annex: "EN" | "UK" | "DE" | "FR" | "ES" | "custom"
+fck = 30                 # 콘크리트 기준압축강도 [MPa]
+fy = 400                 # 철근 기준항복강도 [MPa]
+Fy = 355                 # 형강 항복강도 [MPa] (형강이 있으므로 필수)
+
+[section]
+rebar_standard = "KS"    # 철근 규격표: size = "D25" 로 면적을 정한다 (선택지는 rect_aci318-25.toml 참고)
+outer = { shape = "rect", width = 600, height = 600 }
+bars = [
+  { line = [[60, 60],  [540, 60]],  n = 3, size = "D25" },     # 아래 3개
+  { line = [[60, 540], [540, 540]], n = 3, size = "D25" },     # 위 3개
+  { line = [[60, 300], [540, 300]], n = 2, size = "D25" },     # 좌우 중간 2개
+]
+
+[[section.steel]]
+polygon = { shape = "h_section", d = 300, bf = 200, tw = 10, tf = 16, cx = 300, cy = 300, r = 13 }
+
+[loads.L1]
+Pu = 3000                # kN
+Mux = 500                # kN*m
+Muy = 350                # kN*m

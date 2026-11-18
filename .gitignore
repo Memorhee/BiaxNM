@@ -1,0 +1,33 @@
+# portable Python (not uploaded)
+python/
+
+# generated
+out/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# reference standards (copyrighted, not uploaded)
+*.hwpx
+*.hwp
+*.pdf
+
+# possibly copyrighted section (kept locally)
+examples/pylon.toml
+
+# scratch folder (tests, stress tests, references, eval runs)
+tmp/
+
+# local Claude Code settings and caches
+.claude/settings.local.json
+.venv/
+
+# comparison with another program (kept locally)
+verification/comparison_a?sec.md
+verification/cases/a?sec/
+verification/cases/compare_a?sec/
+verification/scripts/compare_a?sec.py
+verification/input_summary.md
+
+# local run script
+BiaxNM_local.bat

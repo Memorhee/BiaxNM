@@ -1,0 +1,44 @@
+# comparison case 5: solid track B500 H500, 22 D20, dc 50
+# Inputs are summarized in verification/input_summary.md
+# Material: fck 30, fy 500, gamma_c 1.5, gamma_s 1.15, alpha_cc 0.85 (EN 1992-2, na = "UK")
+[code]
+type = "ec2-05-2"
+fck = 30
+fy = 500
+na = "UK"
+
+[section]
+outer = { shape = "track", length = 1000, width = 500, rotation_deg = 90, n_arc = 48 }
+bars = [
+  { x = 200.0000, y = -250.0000, dia = 20 },
+  { x = 200.0000, y = -150.0000, dia = 20 },
+  { x = 200.0000, y = -50.0000, dia = 20 },
+  { x = 200.0000, y = 50.0000, dia = 20 },
+  { x = 200.0000, y = 150.0000, dia = 20 },
+  { x = 200.0000, y = 250.0000, dia = 20 },
+  { x = 173.2051, y = 350.0000, dia = 20 },
+  { x = 100.0000, y = 423.2051, dia = 20 },
+  { x = 0.0000, y = 450.0000, dia = 20 },
+  { x = -100.0000, y = 423.2051, dia = 20 },
+  { x = -173.2051, y = 350.0000, dia = 20 },
+  { x = -200.0000, y = 250.0000, dia = 20 },
+  { x = -200.0000, y = 150.0000, dia = 20 },
+  { x = -200.0000, y = 50.0000, dia = 20 },
+  { x = -200.0000, y = -50.0000, dia = 20 },
+  { x = -200.0000, y = -150.0000, dia = 20 },
+  { x = -200.0000, y = -250.0000, dia = 20 },
+  { x = -173.2051, y = -350.0000, dia = 20 },
+  { x = -100.0000, y = -423.2051, dia = 20 },
+  { x = -0.0000, y = -450.0000, dia = 20 },
+  { x = 100.0000, y = -423.2051, dia = 20 },
+  { x = 173.2051, y = -350.0000, dia = 20 },
+]
+
+[analysis]
+n_c = 200
+reference = "geometric"
+
+[loads.LC1]
+Pu = 0
+Mux = 100
+Muy = 100

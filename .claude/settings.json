@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(out/**)",
+      "Write(out/**)",
+      "Bash(python/python.exe src/main.py *)",
+      "Bash(python src/main.py *)",
+      "Bash(python/python.exe .claude/skills/biaxnm-section/layout.py *)",
+      "Bash(python .claude/skills/biaxnm-section/layout.py *)"
+    ],
+    "ask": [
+      "Edit(src/**)",
+      "Write(src/**)"
+    ]
+  }
+}

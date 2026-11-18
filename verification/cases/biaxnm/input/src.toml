@@ -1,0 +1,35 @@
+# 600 x 600 SRC 기둥 (예제): 매입 H형강 + 철근 8개, Eurocode 2 (EN 1992-1-1:2004), 비교용.
+[code]
+type = "ec2-04-1-1"
+na = "EN"
+fck = 30
+fy = 400
+Fy = 355
+
+
+[section]
+rebar_standard = "KS"
+outer = { shape = "rect", width = 600, height = 600 }
+bars = [
+  { line = [[60, 60],  [540, 60]],  n = 3, size = "D25" },
+  { line = [[60, 540], [540, 540]], n = 3, size = "D25" },
+  { line = [[60, 300], [540, 300]], n = 2, size = "D25" },
+]
+[[section.steel]]
+polygon = { shape = "h_section", d = 300, bf = 200, tw = 10, tf = 16, cx = 300, cy = 300, r = 13 }
+
+[loads.D1]
+Pu = 1000
+Mux = 83.961986
+Muy = 54.317445
+
+[loads.D2]
+Pu = 1000
+Mux = -25.375794
+Muy = 96.726775
+
+[loads.D3]
+Pu = 1000
+Mux = -90.408255
+Muy = -42.735786
+

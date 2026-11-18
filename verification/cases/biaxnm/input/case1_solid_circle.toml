@@ -1,0 +1,21 @@
+# comparison case 1: solid circle D500, 16 D16, dc 50
+# Inputs are summarized in verification/input_summary.md
+# Material: fck 30, fy 500, gamma_c 1.5, gamma_s 1.15, alpha_cc 0.85 (EN 1992-2, na = "UK")
+[code]
+type = "ec2-05-2"
+fck = 30
+fy = 500
+na = "UK"
+
+[section]
+outer = { shape = "circle", r = 250, n = 96 }
+bars = [ { circle = [0, 0, 200], n = 16, dia = 16 } ]
+
+[analysis]
+n_c = 200
+reference = "geometric"
+
+[loads.LC1]
+Pu = 0
+Mux = 100
+Muy = 100

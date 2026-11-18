@@ -1,0 +1,29 @@
+# 중공 원형 단면 바깥지름 2 m, 안지름 1.4 m (속빈 교각), KDS 14 20 20:2022 부록 (재료계수 적용 설계).
+# 피복 50 mm(철근 표면 기준), 바깥면 D22 39개, 안쪽면 D19 32개 (간격 약 150 mm), 철근비 1.5%.
+# 단위: 길이 mm, 면적 mm^2, 응력 MPa, 하중 kN 과 kN*m.  모든 옵션의 설명은 rect_aci318-25.toml 참고.
+
+[code]
+type = "kds14-22-app"
+fck = 40                 # 콘크리트 설계기준압축강도 [MPa]
+fy = 400                 # 철근 항복강도 [MPa]
+# phi_c = 0.65             # 콘크리트 재료계수 (기본 0.65)
+# phi_s = 0.90             # 철근 재료계수 (기본 0.90)
+
+[section]
+rebar_standard = "KS"
+outer = { shape = "circle", cx = 0, cy = 0, r = 1000, n = 128 }
+holes = [ { shape = "circle", cx = 0, cy = 0, r = 700, n = 128 } ]
+# 바깥 철근 반지름 = 1000 - 50 - 22/2 = 939 mm, 안쪽 철근 반지름 = 700 + 50 + 19/2 = 760 mm
+bars = [
+  { circle = [0, 0, 939], n = 39, size = "D22" },     # 바깥면
+  { circle = [0, 0, 760], n = 32, size = "D19" },     # 안쪽면
+]
+
+[analysis]
+n_c = 80
+reference = "geometric"
+
+[loads.L1]
+Pu = 15000               # kN
+Mux = 9000               # kN*m
+Muy = 6000               # kN*m

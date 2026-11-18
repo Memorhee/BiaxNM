@@ -1,0 +1,22 @@
+# 중공 원형 PHC 말뚝: 프리스트레스 강봉 24개, KDS 24 14 21 (교량, 한계상태설계법).
+# 재료계수로 해석하고 결과를 그대로 설계강도로 쓴다 (강도감소계수 phi 를 다시 곱하지 않음).
+# 단위: 길이 mm, 면적 mm^2, 응력 MPa, 하중 kN 과 kN*m.  모든 옵션의 설명은 rect_aci318-25.toml 참고.
+
+[code]
+type = "kds24-25"
+fck = 80                 # 콘크리트 기준압축강도 [MPa] (90 이하)
+fy = 400                 # 철근 기준항복강도 [MPa]
+fpy = 1275               # 긴장재 항복강도 [MPa] (긴장재가 있으므로 필수)
+Ep = 200000              # 긴장재 탄성계수 [MPa]
+
+[section]
+outer = { shape = "circle", cx = 0, cy = 0, r = 300, n = 96 }
+holes = [ { shape = "circle", cx = 0, cy = 0, r = 170, n = 96 } ]
+
+# 긴장재: 반지름 235 mm 원 위에 24개, 1개 단면적 71 mm^2, 유효 프리스트레스 700 MPa(인장).
+tendons = [ { circle = [0, 0, 235], n = 24, area = 71, fse = 700 } ]
+
+[loads.L1]
+Pu = 3000                # kN
+Mux = 250                # kN*m
+Muy = 190                # kN*m

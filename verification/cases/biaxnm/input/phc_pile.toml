@@ -1,0 +1,44 @@
+# 중공 원형 PHC 말뚝: 프리스트레스 강봉 24개, Eurocode 2 (EN 1992-1-1:2004), 비교용.
+[code]
+type = "ec2-04-1-1"
+na = "EN"
+fck = 80
+fy = 400
+fpy = 1275
+Ep = 200000
+
+[section]
+outer = { shape = "circle", cx = 0, cy = 0, r = 300, n = 96 }
+holes = [ { shape = "circle", cx = 0, cy = 0, r = 170, n = 96 } ]
+tendons = [ { circle = [0, 0, 235], n = 24, area = 71, fse = 700 } ]
+
+[loads.P1]
+Pu = 3000
+Mux = 100.000000
+Muy = 0.000000
+
+[loads.P2]
+Pu = 3000
+Mux = 99.144486
+Muy = 13.052619
+
+[loads.P3]
+Pu = 3000
+Mux = 98.162718
+Muy = 19.080900
+
+[loads.P4]
+Pu = 3000
+Mux = 92.387953
+Muy = 38.268343
+
+[loads.P5]
+Pu = 3000
+Mux = 83.580736
+Muy = 54.902282
+
+[loads.P6]
+Pu = 3000
+Mux = 70.710678
+Muy = 70.710678
+

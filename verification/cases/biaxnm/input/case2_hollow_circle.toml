@@ -1,0 +1,25 @@
+# comparison case 2: hollow circle D500 T100, 16+16 D12, dc 30
+# Inputs are summarized in verification/input_summary.md
+# Material: fck 30, fy 500, gamma_c 1.5, gamma_s 1.15, alpha_cc 0.85 (EN 1992-2, na = "UK")
+[code]
+type = "ec2-05-2"
+fck = 30
+fy = 500
+na = "UK"
+
+[section]
+outer = { shape = "circle", r = 250, n = 96 }
+holes = [ { shape = "circle", r = 150, n = 96 } ]
+bars = [
+  { circle = [0, 0, 220], n = 16, dia = 12 },
+  { circle = [0, 0, 180], n = 16, dia = 12 },
+]
+
+[analysis]
+n_c = 200
+reference = "geometric"
+
+[loads.LC1]
+Pu = 0
+Mux = 100
+Muy = 100

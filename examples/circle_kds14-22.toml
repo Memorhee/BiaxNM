@@ -1,0 +1,24 @@
+# 속찬 원형 단면 D = 2 m (교각), KDS 14 20 20:2022 (강도설계법), 나선철근.
+# 피복 50 mm(철근 표면 기준), D32 40개 (간격 약 147 mm), 철근비 1.0%.
+# 단위: 길이 mm, 면적 mm^2, 응력 MPa, 하중 kN 과 kN*m.  모든 옵션의 설명은 rect_aci318-25.toml 참고.
+
+[code]
+type = "kds14-22"
+fck = 40                 # 콘크리트 설계기준압축강도 [MPa]
+fy = 400                 # 철근 항복강도 [MPa]
+transverse = "spiral"    # "tied"(띠철근, phi_c=0.65) | "spiral"(나선철근, phi_c=0.70)
+
+[section]
+rebar_standard = "KS"
+outer = { shape = "circle", cx = 0, cy = 0, r = 1000, n = 128 }
+# 철근 중심 반지름 = 1000 - 50 - 32/2 (D32 의 지름 약 31.8 mm) = 934 mm
+bars = [ { circle = [0, 0, 934], n = 40, size = "D32" } ]
+
+[analysis]
+n_c = 80
+reference = "geometric"
+
+[loads.L1]
+Pu = 20000               # kN
+Mux = 12000              # kN*m
+Muy = 8000               # kN*m
